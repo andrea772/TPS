@@ -15,14 +15,14 @@
                 var k=1
                 for (var i=0;i<myObj.utente.length;i++){
                     var table = document.getElementById("table");
-                    var row = table.insertRow(k);
+                    var row = table.insertRow(i+1);
                     var cell1 = row.insertCell(0);
                     cell1.setAttribute("id","n"+i)
                     var cell2 = row.insertCell(1);
                     cell2.setAttribute("id","t"+i)
                     cell1.innerHTML=myObj.utente[i].nome
                     cell2.innerHTML=myObj.utente[i].telefono
-                    k++
+                  //  k++
                 }
                 }
                 };
