@@ -1,0 +1,37 @@
+<html>
+    <body style="margin: 30px;">
+        <table border="1px solid rgb(0,0,0)" id="table">
+            <tr>
+                <td >Nome</td>
+                <td >Numero Telefono</td>
+            </tr>
+        </table>
+       
+        <script>
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                var myObj = JSON.parse(this.responseText);
+                var k=1
+                for (var i=0;i<myObj.utente.length;i++){
+                    var table = document.getElementById("table");
+                    var row = table.insertRow(k);
+                    var cell1 = row.insertCell(0);
+                    cell1.setAttribute("id","n"+i)
+                    var cell2 = row.insertCell(1);
+                    cell2.setAttribute("id","t"+i)
+                    cell1.innerHTML=myObj.utente[i].nome
+                    cell2.innerHTML=myObj.utente[i].telefono
+                    k++
+                }
+                }
+                };
+                xmlhttp.open("GET", "prova.json", true);
+                xmlhttp.send();
+            
+        
+        </script>
+    </body>
+</html>
+
+ 
